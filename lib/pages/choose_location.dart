@@ -10,8 +10,18 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
 var counter = 0;
 
+void getData(){
+      //simulate anetwork request for a suername
+  Future.delayed(Duration(seconds: 3),(){
+    print('yoshi');
+  });
+
+  print('statement');
+}
+
   void initState(){
     super.initState();
+    getData();
     print('initState function ran');
   }
 
@@ -26,14 +36,16 @@ var counter = 0;
         centerTitle: true,
         elevation: 0,
       ),
-      body: FloatingActionButton(
-        onPressed: ()
-             {
-               setState(() {
-                 counter +=1;
-               });
-             },
-        child: Text('counter is $counter'),
+      body: Center(
+        child: FloatingActionButton(
+          onPressed: ()
+               {
+                 setState(() {
+                   counter +=1;
+                 });
+               },
+          child: Text('counter is $counter'),
+        ),
       ),
     );
   }
